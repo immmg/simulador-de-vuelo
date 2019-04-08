@@ -6,3 +6,4 @@
 * Portable y de facil almacenamiento
 * Peso total del simulador:
 * Controlador: `Arduino Uno`
+* Numero de Usuarios: `1`
