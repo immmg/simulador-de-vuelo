@@ -33,7 +33,7 @@ void loop()
     delay(500);
   }
 
-  if (digitalRead(final_ext) == HIGH || digitalRead(final_contr) == HIGH)
+  if (digitalRead(final_ext) == HIGH || digitalRead(final_contr) == HIGH || Speed == 0)
   {
     analogWrite(motor_actuador1, LOW);
     digitalWrite(motor_enable1, LOW);
