@@ -3,8 +3,6 @@
 #define motor_enable1 24
 #define motor_enable2 25
 
-#define motor_actuador1 2
-
 String leeCadena;
 int Speed;
 
@@ -13,7 +11,6 @@ void setup()
   Serial.begin(9600);
   pinMode(final_ext, INPUT);
   pinMode(final_contr, INPUT);
-  pinMode(motor_actuador1, OUTPUT);
   pinMode(motor_enable1, OUTPUT);
   pinMode(motor_enable2, OUTPUT);
 }
@@ -35,23 +32,20 @@ void loop()
 
   if (digitalRead(final_ext) == HIGH || digitalRead(final_contr) == HIGH || Speed == 0)
   {
-    analogWrite(motor_actuador1, LOW);
-    digitalWrite(motor_enable1, LOW);
-    digitalWrite(motor_enable2, LOW);
+    analogWrite(motor_enable1, LOW);
+    analogWrite(motor_enable2, LOW);
   }
   else
   {
     if(Speed < 0)
     {
-      digitalWrite(motor_enable1, LOW);
-      digitalWrite(motor_enable2, HIGH);
-      analogWrite(motor_actuador1, Speed);
+      analogWrite(motor_enable1, LOW);
+      analogWrite(motor_enable2, Speed);
     }
     else if (Speed > 0)
     {
-      digitalWrite(motor_enable1, HIGH);
-      digitalWrite(motor_enable2, LOW);
-      analogWrite(motor_actuador1, Speed);
+      analogWrite(motor_enable1, Speed);
+      analogWrite(motor_enable2, LOW);
     }
     else
     {
